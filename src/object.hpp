@@ -55,6 +55,26 @@ public:
     virtual ~Object() {}
 
     virtual TracingResult Trace(const Ray &r) = 0;
+
+    float getEmission () 
+    {
+        return emission;
+    }
+
+    Material getMaterial() 
+    {
+        return material;
+    }
+
+    void setEmission(float emission)
+    {
+        this->emission = emission;
+    }
+
+    void setMaterial(Material material) 
+    {
+        this->material = material;
+    }
     
 protected:
     float emission = 0;

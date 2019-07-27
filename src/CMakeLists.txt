@@ -3,6 +3,7 @@ set (SOURCES
     "image.cpp"
     "geom.cpp"
     "object.hpp"
+    "material.cpp"
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

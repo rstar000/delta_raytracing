@@ -3,6 +3,7 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 #include "geom.hpp"
+#include "ray.hpp"
 
 class Camera
 {
@@ -16,16 +17,14 @@ class Camera
 public:
     Camera(float fov, float aspect);
 
-    Camera(Vec3 pos, Vec3 lookAt, float f, float asp, Vec3 dir, Vec3 view)
+    Camera(Vec3 pos, Vec3 lookAt, float f, float asp)
     {
         position = pos;
         look_at = lookAt;
-        direction = dir;
         fov = f;
         aspect = asp;
         vfov = fov/aspect;
-        view_at = view;
-        view = look_at - position;
+        Vec3 view = look_at - position;
         direction = view.normalized();
     }
 
@@ -41,7 +40,5 @@ public:
         r.direction = Vec3(x,y,z);
         return r;
     }
-
-    Vec3 get_ray_direction(float alpha_x, float alpha_y);
 };
 
